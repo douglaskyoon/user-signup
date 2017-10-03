@@ -32,12 +32,15 @@ def signup():
 
     count_1 = 0
     count_2 = 0
+    count_3=0
     for x in email:
         if ord(x) == 64:
             count_1 += 1
         if ord(x) == 46:
             count_2 += 1
-    if count_1 != 1 or count_2 != 1:
+        if ord(x) == 32:
+            count_3 += 1
+    if count_3 != 0 or count_1 != 1 or count_2 != 1 or len(email) < 3 or len(email) >20:
         email_error = "that is not a valid email"
 
     if not username_error and not password_error and not verify_error and not email:
